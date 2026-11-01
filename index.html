@@ -1,119 +1,816 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Portfólio</title>
+    <meta name="description" content="Portfólio de Matheus Rennan — Fullstack Software Engineer (.NET & Azure) e Pesquisador em IA Generativa (LLMs & RAG na UFCA/FINEP).">
+    <title>Matheus Rennan — Software Engineer & AI Researcher</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body id="topo">
 
-    <div class="background"></div>
+    <div class="ambient-grid" aria-hidden="true"></div>
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
 
-    <header>
-        <nav>
-            <h2>PORTFÓLIO</h2>
+    <aside class="sidebar" id="sidebar" aria-label="Menu lateral">
+        <button type="button" class="sidebar-tab" id="sidebarToggle" aria-label="Alternar barra lateral" title="Abrir / fechar menu lateral">
+            <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="9" y1="3" x2="9" y2="21"></line>
+            </svg>
+            <svg class="tab-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+        </button>
 
-            <ul>
-                <li><a href="#sobre">Sobre</a></li>
-                <li><a href="#projetos">Projetos</a></li>
-                <li><a href="#contato">Contato</a></li>
-            </ul>
-        </nav>
-    </header>
+        <div class="sidebar-inner">
+            <a href="#topo" class="brand">
+                <span class="brand-mark">MR</span>
+                <div class="brand-text">
+                    <span class="brand-name">Matheus Rennan</span>
+                    <span class="brand-role" data-i18n="nav.role">Software &amp; AI Engineer</span>
+                </div>
+            </a>
 
-    <section class="hero">
+            <nav class="sidebar-nav" aria-label="Navegação principal">
+                <ul class="nav-links" id="navLinks">
+                    <li>
+                        <a href="#sobre" class="active">
+                            <span class="nav-num">01</span>
+                            <span data-i18n="nav.about">Especialidades</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#experiencia">
+                            <span class="nav-num">02</span>
+                            <span data-i18n="nav.experience">Experiência</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#cases">
+                            <span class="nav-num">03</span>
+                            <span data-i18n="nav.cases">Projetos &amp; Cases</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#formacao">
+                            <span class="nav-num">04</span>
+                            <span data-i18n="nav.education">Acadêmico &amp; Certificados</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#artigos">
+                            <span class="nav-num">05</span>
+                            <span data-i18n="nav.articles">Artigos</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#stack">
+                            <span class="nav-num">06</span>
+                            <span data-i18n="nav.stack">Stack</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#contato">
+                            <span class="nav-num">07</span>
+                            <span data-i18n="nav.contact">Contato</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
 
-        <div class="hero-text">
+            <div class="sidebar-footer">
+                <div class="sidebar-controls">
+                    <button type="button" class="lang-toggle" id="langToggle" data-active-lang="pt" aria-label="Alternar idioma entre Português e Inglês" title="Alternar idioma (PT / EN)">
+                        <span class="lang-glider" aria-hidden="true"></span>
+                        <span class="lang-option active" data-lang-indicator="pt">PT</span>
+                        <span class="lang-option" data-lang-indicator="en">EN</span>
+                    </button>
 
-            <!-- EDITAR -->
-            <p class="tag">Desenvolvedor Web</p>
-
-            <!-- EDITAR -->
-            <h1>Olá, eu sou <span>Seu Nome</span></h1>
-
-            <!-- EDITAR -->
-            <p class="description">
-                Escreva aqui uma breve apresentação sobre você.
-            </p>
-
-            <button id="btnMensagem">
-                Clique Aqui
-            </button>
-
-        </div>
-
-        <div class="hero-image">
-
-            <!-- EDITAR -->
-            <img src="https://via.placeholder.com/350" alt="Foto de Perfil">
-
-        </div>
-
-    </section>
-
-    <section id="sobre" class="card">
-
-        <h2>Sobre Mim</h2>
-
-        <!-- EDITAR -->
-        <p>
-            Conte um pouco da sua história, seus estudos e seus objetivos.
-        </p>
-
-    </section>
-
-    <section id="projetos">
-
-        <h2 class="section-title">Projetos</h2>
-
-        <div class="projects">
-
-            <div class="project-card">
-                <h3>Projeto 1</h3>
-
-                <!-- EDITAR -->
-                <p>Descrição do primeiro projeto.</p>
+                    <button type="button" class="theme-toggle" id="themeToggle" aria-label="Alternar tema claro ou escuro" title="Alternar tema">
+                        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                            <circle cx="12" cy="12" r="4"></circle>
+                            <path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32l1.41-1.41"></path>
+                        </svg>
+                        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </button>
+                </div>
             </div>
-
-            <div class="project-card">
-                <h3>Projeto 2</h3>
-
-                <!-- EDITAR -->
-                <p>Descrição do segundo projeto.</p>
-            </div>
-
-            <div class="project-card">
-                <h3>Projeto 3</h3>
-
-                <!-- EDITAR -->
-                <p>Descrição do terceiro projeto.</p>
-            </div>
-
         </div>
+    </aside>
 
-    </section>
+    <div class="layout-wrapper">
+        <main>
+            <section class="hero container">
+                <div class="hero-content">
+                    <div class="status-pill">
+                        <span class="status-dot"></span>
+                        <span data-i18n="hero.status">Fullstack Software Engineer @ LUXCLUSIF / FARFETCH</span>
+                    </div>
 
-    <section id="contato" class="card">
+                    <h1 class="hero-title" data-i18n="hero.title">
+                        Arquitetura de software escalável &amp; <span>Inteligência Artificial</span> aplicada.
+                    </h1>
 
-        <h2>Contato</h2>
+                    <p class="hero-lead" data-i18n="hero.lead">
+                        Engenheiro de Software com sólida atuação em sistemas distribuídos utilizando <strong>.NET 8/10</strong>, <strong>Microsoft Azure</strong> e <strong>Domain-Driven Design</strong>, aliado à pesquisa acadêmica em <strong>LLMs, RAG e Fine-tuning</strong> pela UFCA/FINEP.
+                    </p>
 
-        <!-- EDITAR -->
-        <p>Email: seuemail@email.com</p>
+                    <div class="hero-cta-group">
+                        <a href="#contato" class="btn btn-primary" data-i18n="hero.ctaContact">
+                            Contato profissional
+                        </a>
+                        <a href="assets/cv/Curriculo_MatheusRennan.pdf" id="cvDownloadLink" target="_blank" rel="noopener" class="btn btn-secondary">
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="7 10 12 15 17 10"></polyline>
+                                <line x1="12" y1="15" x2="12" y2="3"></line>
+                            </svg>
+                            <span data-i18n="hero.ctaCv">Baixar Currículo (PDF)</span>
+                        </a>
+                    </div>
 
-        <!-- EDITAR -->
-        <p>Instagram: @seuinstagram</p>
+                    <div class="hero-quick-links">
+                        <a href="https://linkedin.com/in/matheus-rennan-735370267/" target="_blank" rel="noopener" class="meta-link">
+                            <span>LinkedIn</span>
+                            <span class="arrow">↗</span>
+                        </a>
+                        <a href="https://github.com/matheux147" target="_blank" rel="noopener" class="meta-link">
+                            <span>GitHub</span>
+                            <span class="arrow">↗</span>
+                        </a>
+                        <a href="https://ufca-llms.github.io/" target="_blank" rel="noopener" class="meta-link">
+                            <span data-i18n="hero.researchGroup">Grupo de Pesquisa UFCA LLMs</span>
+                            <span class="arrow">↗</span>
+                        </a>
+                    </div>
+                </div>
 
-    </section>
+                <div class="hero-visual">
+                    <div class="portrait-frame">
+                        <img src="images/perfil.jpg" alt="Matheus Rennan" class="portrait-img">
+                        <div class="portrait-caption">
+                            <div>
+                                <p class="caption-location">Juazeiro do Norte, CE — Brasil</p>
+                                <p class="caption-sub" data-i18n="hero.captionSub">Atuação Remota Global · Inglês C1 Advanced</p>
+                            </div>
+                            <span class="caption-badge">.NET &amp; AI</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-    <footer>
-        <p>© 2026 - Seu Nome</p>
-    </footer>
+            <section class="metrics-strip container" aria-label="Destaques de carreira">
+                <div class="metric-item">
+                    <span class="metric-label" data-i18n="metrics.m1Label">Foco Principal</span>
+                    <strong class="metric-value">.NET 8/10 · Azure · DDD</strong>
+                </div>
+                <div class="metric-item">
+                    <span class="metric-label" data-i18n="metrics.m2Label">Pesquisa em IA (FINEP)</span>
+                    <strong class="metric-value">LLMs · RAG · Fine-Tuning</strong>
+                </div>
+                <div class="metric-item">
+                    <span class="metric-label" data-i18n="metrics.m3Label">Certificação Destaque</span>
+                    <strong class="metric-value">Databricks GenAI Associate</strong>
+                </div>
+                <div class="metric-item">
+                    <span class="metric-label" data-i18n="metrics.m4Label">Proficiência em Idiomas</span>
+                    <strong class="metric-value" data-i18n="metrics.m4Value">Português Nativo · Inglês C1</strong>
+                </div>
+            </section>
+
+            <section id="sobre" class="section container">
+                <div class="section-grid">
+                    <div class="section-sidebar">
+                        <span class="section-index">01 / <span data-i18n="about.index">DOMÍNIOS</span></span>
+                        <h2 class="section-heading" data-i18n="about.heading">Engenharia de software encontra pesquisa em IA.</h2>
+                        <p class="section-desc" data-i18n="about.desc">
+                            Minha trajetória combina o rigor arquitetural de sistemas financeiros e plataformas globais de e-commerce de luxo com a pesquisa acadêmica em modelos de linguagem de grande escala.
+                        </p>
+                    </div>
+
+                    <div class="section-body pillars-list">
+                        <article class="pillar-card">
+                            <div class="pillar-header">
+                                <span class="pillar-num">01</span>
+                                <h3 data-i18n="about.p1Title">Backend Engineering &amp; Software Architecture</h3>
+                            </div>
+                            <p data-i18n="about.p1Text">
+                                Construção e modernização de microsserviços escaláveis com <strong>.NET (6/8/10)</strong>, <strong>C#</strong> e <strong>Spring Boot</strong>. Aplicação prática de <strong>Domain-Driven Design (DDD)</strong>, <strong>CQRS</strong> (MediatR), <strong>Arquitetura Hexagonal</strong>, mensageria assíncrona com <strong>Azure Service Bus</strong>, <strong>MassTransit</strong> e <strong>RabbitMQ</strong>, além de camadas de orquestração <strong>BFF/BFI</strong> e testes automatizados (xUnit, NSubstitute, Bogus).
+                            </p>
+                            <div class="tag-row">
+                                <span>.NET 8/10</span>
+                                <span>ASP.NET Core</span>
+                                <span>DDD &amp; CQRS</span>
+                                <span>Hexagonal</span>
+                                <span>Azure Service Bus</span>
+                                <span>MassTransit</span>
+                                <span>RabbitMQ</span>
+                                <span>EF Core &amp; Dapper</span>
+                            </div>
+                        </article>
+
+                        <article class="pillar-card">
+                            <div class="pillar-header">
+                                <span class="pillar-num">02</span>
+                                <h3 data-i18n="about.p2Title">Generative AI, Agents &amp; LLM Engineering</h3>
+                            </div>
+                            <p data-i18n="about.p2Text">
+                                Desenvolvimento de agentes inteligentes e arquiteturas <strong>RAG</strong> utilizando <strong>Microsoft Agent Framework</strong>, <strong>Microsoft.Extensions.AI (MEAI)</strong>, <strong>Semantic Kernel</strong>, <strong>LangChain</strong> e <strong>LlamaIndex</strong>. Experiência em curadoria de datasets, treinamento de tokenizers customizados, <strong>continuous pre-training</strong> e <strong>fine-tuning</strong> com Hugging Face, além de avaliação quantitativa com <strong>Databricks</strong> e <strong>RAGAS</strong>.
+                            </p>
+                            <div class="tag-row">
+                                <span>Microsoft Agent Framework</span>
+                                <span>Microsoft.Extensions.AI</span>
+                                <span>Semantic Kernel</span>
+                                <span>LLMs &amp; RAG</span>
+                                <span>LangChain &amp; LlamaIndex</span>
+                                <span>Hugging Face</span>
+                                <span>Databricks &amp; RAGAS</span>
+                            </div>
+                        </article>
+
+                        <article class="pillar-card">
+                            <div class="pillar-header">
+                                <span class="pillar-num">03</span>
+                                <h3 data-i18n="about.p3Title">Cloud-Native, Serverless &amp; Applied AI</h3>
+                            </div>
+                            <p data-i18n="about.p3Text">
+                                Implantação e observabilidade em <strong>Microsoft Azure</strong> (Service Bus, App Service, Application Insights, Feature Flags) e <strong>AWS</strong> (Lambda, SQS, S3, Textract) com infraestrutura como código em <strong>Terraform</strong>, <strong>Docker</strong> e <strong>Kubernetes</strong>. Vivência adicional em Visão Computacional com <strong>YOLOX</strong>, <strong>Detectron2</strong> e <strong>OpenCV</strong>.
+                            </p>
+                            <div class="tag-row">
+                                <span>Microsoft Azure</span>
+                                <span>AWS Serverless</span>
+                                <span>Terraform</span>
+                                <span>Docker &amp; K8s</span>
+                                <span>YOLOX &amp; Detectron2</span>
+                                <span>OpenAI Whisper</span>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section id="experiencia" class="section container">
+                <div class="section-grid">
+                    <div class="section-sidebar">
+                        <span class="section-index">02 / <span data-i18n="exp.index">TRAJETÓRIA</span></span>
+                        <h2 class="section-heading" data-i18n="exp.heading">Experiência Profissional</h2>
+                        <p class="section-desc" data-i18n="exp.desc">
+                            Atuação em equipes internacionais, grandes instituições financeiras e projetos de pesquisa financiados em Inteligência Artificial.
+                        </p>
+                    </div>
+
+                    <div class="section-body timeline">
+                        <article class="timeline-item">
+                            <div class="timeline-meta">
+                                <span class="timeline-date" data-i18n="exp.r1Date">ABR 2026 — ATUAL</span>
+                                <span class="timeline-location" data-i18n="exp.r1Loc">Porto, Portugal · Remoto</span>
+                            </div>
+                            <div class="timeline-content">
+                                <div class="timeline-header">
+                                    <img src="images/luxclusif_logo.jpg" alt="LUXCLUSIF" class="company-logo">
+                                    <div>
+                                        <h3>Fullstack Software Engineer</h3>
+                                        <span class="company-name">LUXCLUSIF / FARFETCH</span>
+                                    </div>
+                                </div>
+                                <ul class="timeline-bullets">
+                                    <li data-i18n="exp.r1b1">Desenvolvimento e evolução de microsserviços em nuvem utilizando <strong>.NET 8/10</strong> e <strong>Microsoft Azure</strong> (Service Bus para mensageria assíncrona, App Service, Application Insights e Feature Flags).</li>
+                                    <li data-i18n="exp.r1b2">Modernização ativa de aplicações legadas em PHP para arquitetura moderna de microsserviços em .NET, implementando segurança em APIs RESTful com <strong>JWT</strong> e <strong>OAuth2/OIDC</strong>.</li>
+                                    <li data-i18n="exp.r1b3">Automação de infraestrutura com <strong>Terraform</strong> e colaboração com times internacionais multidisciplinares utilizando Gitflow (Bitbucket), Jira e ferramentas de engenharia assistidas por IA.</li>
+                                </ul>
+                                <div class="tag-row">
+                                    <span>C#</span>
+                                    <span>.NET 8/10</span>
+                                    <span>Microsoft Azure</span>
+                                    <span>Azure Service Bus</span>
+                                    <span>Terraform</span>
+                                    <span>OAuth2 / OIDC</span>
+                                    <span>Microservices</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="timeline-item">
+                            <div class="timeline-meta">
+                                <span class="timeline-date" data-i18n="exp.r2Date">FEV 2025 — ATUAL</span>
+                                <span class="timeline-location" data-i18n="exp.r2Loc">Juazeiro do Norte, CE · Remoto</span>
+                            </div>
+                            <div class="timeline-content">
+                                <div class="timeline-header">
+                                    <img src="images/ufca_logo.jpg" alt="UFCA" class="company-logo">
+                                    <div>
+                                        <h3 data-i18n="exp.r2Role">Pesquisador em IA Generativa (FINEP)</h3>
+                                        <span class="company-name">Universidade Federal do Cariri (UFCA)</span>
+                                    </div>
+                                </div>
+                                <ul class="timeline-bullets">
+                                    <li data-i18n="exp.r2b1">Atuação no projeto financiado pela FINEP <em>“Pre-training and Fine-tuning LLMs for Legal Interpretation and Analysis”</em>, focado em raciocínio jurídico automatizado em português.</li>
+                                    <li data-i18n="exp.r2b2">Construção de pipelines <strong>RAG</strong> com <strong>LangChain</strong> e <strong>LlamaIndex</strong> para recuperação semântica de jurisprudência, além de geração, limpeza e otimização de datasets jurídicos.</li>
+                                    <li data-i18n="exp.r2b3">Treinamento de tokenizers customizados, <strong>continuous pre-training</strong> e ajustes em camadas com <strong>Hugging Face</strong>, avaliando pipelines com <strong>Databricks</strong> e <strong>RAGAS</strong> (BLEU, ROUGE, Response Relevancy).</li>
+                                </ul>
+                                <div class="tag-row">
+                                    <span>Python</span>
+                                    <span>LLMs</span>
+                                    <span>LangChain</span>
+                                    <span>LlamaIndex</span>
+                                    <span>Hugging Face</span>
+                                    <span>Databricks</span>
+                                    <span>RAGAS</span>
+                                    <span>Fine-tuning</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="timeline-item">
+                            <div class="timeline-meta">
+                                <span class="timeline-date" data-i18n="exp.r3Date">DEZ 2024 — ABR 2026</span>
+                                <span class="timeline-location" data-i18n="exp.r3Loc">Belo Horizonte, MG · Remoto</span>
+                            </div>
+                            <div class="timeline-content">
+                                <div class="timeline-header">
+                                    <img src="images/avenuecode_logo.jpg" alt="Avenue Code" class="company-logo">
+                                    <div>
+                                        <h3 data-i18n="exp.r3Role">Mid Software Engineer (Engenheiro Pleno)</h3>
+                                        <span class="company-name">Avenue Code</span>
+                                    </div>
+                                </div>
+                                <ul class="timeline-bullets">
+                                    <li data-i18n="exp.r3b1">Atuação na modernização de plataforma de <strong>digital banking</strong> de grande escala para instituição financeira corporativa, aplicando <strong>DDD</strong>, <strong>CQRS</strong> (MediatR/AutoMapper) e <strong>Arquitetura Hexagonal</strong>.</li>
+                                    <li data-i18n="exp.r3b2">Implementação de fluxos de orquestração em camadas <strong>BFF/BFI</strong> e serviços backend em <strong>ASP.NET Core</strong>, otimizando consultas em <strong>SQL Server</strong> com <strong>Entity Framework Core</strong> e <strong>Dapper</strong>.</li>
+                                    <li data-i18n="exp.r3b3">Garantia de alta cobertura em regras críticas com testes unitários e de integração (<strong>xUnit, NSubstitute, Bogus</strong>) e entregas contínuas com <strong>Docker, Kubernetes</strong> e <strong>Azure DevOps</strong>.</li>
+                                </ul>
+                                <div class="tag-row">
+                                    <span>ASP.NET Core</span>
+                                    <span>DDD &amp; CQRS</span>
+                                    <span>Hexagonal Architecture</span>
+                                    <span>BFF Pattern</span>
+                                    <span>EF Core &amp; Dapper</span>
+                                    <span>SQL Server</span>
+                                    <span>xUnit</span>
+                                    <span>Docker &amp; K8s</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="timeline-item">
+                            <div class="timeline-meta">
+                                <span class="timeline-date" data-i18n="exp.r4Date">JUL 2023 — NOV 2024</span>
+                                <span class="timeline-location" data-i18n="exp.r4Loc">São Paulo, SP · Remoto</span>
+                            </div>
+                            <div class="timeline-content">
+                                <div class="timeline-header">
+                                    <img src="images/brisa_logo.jpg" alt="BRISA" class="company-logo">
+                                    <div>
+                                        <h3 data-i18n="exp.r4Role">Software Developer</h3>
+                                        <span class="company-name">BRISA — Sociedade para o Desenvolvimento da TI</span>
+                                    </div>
+                                </div>
+                                <ul class="timeline-bullets">
+                                    <li data-i18n="exp.r4b1">Desenvolvimento de microsserviço serverless de validação documental com <strong>AWS Lambda</strong>, acionado por <strong>Amazon SQS</strong> e integrado ao <strong>Amazon Textract (OCR)</strong> e LLMs da OpenAI via <strong>Semantic Kernel (.NET)</strong>.</li>
+                                    <li data-i18n="exp.r4b2">Construção de Web APIs em <strong>ASP.NET Core</strong> e evolução de plataforma interna de gestão em <strong>Spring Boot</strong> (DDD, Spring Data JPA, Spring Security e <strong>PostgreSQL</strong>).</li>
+                                    <li data-i18n="exp.r4b3">Criação de chatbots educacionais em <strong>Python (Django/Flask)</strong> com pipelines <strong>RAG (LangChain + FAISS)</strong>, context caching e transcrição de voz com <strong>OpenAI Whisper (STT)</strong>.</li>
+                                </ul>
+                                <div class="tag-row">
+                                    <span>.NET Core</span>
+                                    <span>Semantic Kernel</span>
+                                    <span>AWS Lambda &amp; SQS</span>
+                                    <span>Amazon Textract</span>
+                                    <span>Spring Boot</span>
+                                    <span>Python</span>
+                                    <span>PostgreSQL</span>
+                                    <span>Whisper STT</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="timeline-item">
+                            <div class="timeline-meta">
+                                <span class="timeline-date" data-i18n="exp.r5Date">JAN 2023 — AGO 2023</span>
+                                <span class="timeline-location" data-i18n="exp.r5Loc">Portugal · Remoto</span>
+                            </div>
+                            <div class="timeline-content">
+                                <div class="timeline-header">
+                                    <img src="images/n_0_logo.jpg" alt="n.0" class="company-logo">
+                                    <div>
+                                        <h3 data-i18n="exp.r5Role">Artificial Intelligence Intern</h3>
+                                        <span class="company-name">n.0</span>
+                                    </div>
+                                </div>
+                                <ul class="timeline-bullets">
+                                    <li data-i18n="exp.r5b1">Desenvolvimento de modelos de Deep Learning para detecção de comportamento equino em imagens e vídeos com <strong>YOLOX, Detectron2 e OpenCV</strong> (Object Detection e Instance Segmentation).</li>
+                                    <li data-i18n="exp.r5b2">Criação de sistema de tradução de linguagem natural para SQL (<strong>NL-to-SQL</strong>) utilizando LLMs e implantação de soluções de IA Generativa com <strong>LangChain, Ollama e Flask</strong>.</li>
+                                </ul>
+                                <div class="tag-row">
+                                    <span>Python</span>
+                                    <span>YOLOX</span>
+                                    <span>Detectron2</span>
+                                    <span>OpenCV</span>
+                                    <span>NL-to-SQL</span>
+                                    <span>Ollama</span>
+                                    <span>LangChain</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section id="cases" class="section container">
+                <div class="section-header-full">
+                    <div>
+                        <span class="section-index">03 / <span data-i18n="cases.index">PROJETOS &amp; ARQUITETURA</span></span>
+                        <h2 class="section-heading" data-i18n="cases.heading">Soluções e Arquiteturas em Destaque</h2>
+                    </div>
+                    <p class="section-desc-inline" data-i18n="cases.desc">
+                        Projetos autorais e arquiteturas de software desenvolvidos com foco em .NET, Inteligência Artificial Generativa e sistemas distribuídos.
+                    </p>
+                </div>
+
+                <div class="cases-grid">
+                    <article class="case-card">
+                        <div class="case-body">
+                            <div class="case-meta">
+                                <span data-i18n="cases.c1Category">Arquitetura Hexagonal &amp; .NET 10</span>
+                                <a href="https://github.com/matheux147/inventory-management-api" target="_blank" rel="noopener" class="case-external-link">
+                                    GitHub ↗
+                                </a>
+                            </div>
+                            <h3 data-i18n="cases.c1Title">Inventory Management API (.NET 10 &amp; Hexagonal)</h3>
+                            <p data-i18n="cases.c1Text">
+                                API RESTful construída com .NET 10 aplicando Arquitetura Hexagonal (Ports &amp; Adapters), CQRS e Result Pattern para gestão do ciclo de vida de produtos, categorias e fornecedores, com cache distribuído híbrido (Redis + MemoryCache) e integrações externas (WMS, Auditoria e E-mail).
+                            </p>
+                            <div class="tag-row">
+                                <span>.NET 10</span>
+                                <span>Hexagonal Architecture</span>
+                                <span>CQRS</span>
+                                <span>Redis</span>
+                                <span>SQL Server</span>
+                                <span>Docker</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="case-card">
+                        <div class="case-body">
+                            <div class="case-meta">
+                                <span data-i18n="cases.c2Category">IA Generativa &amp; Agentes</span>
+                                <a href="https://github.com/matheux147/personal-assistant-api" target="_blank" rel="noopener" class="case-external-link">
+                                    GitHub ↗
+                                </a>
+                            </div>
+                            <h3 data-i18n="cases.c2Title">Personal Assistant API (.NET + Semantic Kernel)</h3>
+                            <p data-i18n="cases.c2Text">
+                                Backend construído com .NET 8 projetado para atuar como o núcleo de um assistente pessoal inteligente. Transforma linguagem natural em ações de organização pessoal utilizando Microsoft Semantic Kernel e Function Calling para executar funções nativas em C# no gerenciamento de tarefas e contas financeiras.
+                            </p>
+                            <div class="tag-row">
+                                <span>.NET 8</span>
+                                <span>Semantic Kernel</span>
+                                <span>OpenAI Function Calling</span>
+                                <span>CQRS &amp; MediatR</span>
+                                <span>EF Core</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="case-card">
+                        <div class="case-body">
+                            <div class="case-meta">
+                                <span data-i18n="cases.c3Category">Arquitetura Orientada a Eventos</span>
+                                <span class="case-context">BRISA</span>
+                            </div>
+                            <h3 data-i18n="cases.c3Title">Validação Documental Inteligente com OCR &amp; Semantic Kernel</h3>
+                            <p data-i18n="cases.c3Text">
+                                Microsserviço serverless em .NET acionado de forma assíncrona via Amazon SQS e AWS Lambda. Combina extração óptica do Amazon Textract com orquestração de LLMs via Microsoft Semantic Kernel para validar e estruturar dados contextuais com mínima intervenção manual.
+                            </p>
+                            <div class="tag-row">
+                                <span>.NET Core</span>
+                                <span>Semantic Kernel</span>
+                                <span>AWS Lambda</span>
+                                <span>Amazon SQS</span>
+                                <span>Amazon Textract</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section id="formacao" class="section container">
+                <div class="section-grid">
+                    <div class="section-sidebar">
+                        <span class="section-index">04 / <span data-i18n="edu.index">CREDENCIAIS</span></span>
+                        <h2 class="section-heading" data-i18n="edu.heading">Formação Acadêmica &amp; Certificações</h2>
+                        <p class="section-desc" data-i18n="edu.desc">
+                            Base acadêmica em Ciência da Computação pela UFCA combinada com certificações internacionais em IA Generativa, Cloud e proficiência no idioma inglês.
+                        </p>
+                    </div>
+
+                    <div class="section-body credentials-wrapper">
+                        <div class="academic-block">
+                            <div class="block-label" data-i18n="edu.academicLabel">FORMAÇÃO ACADÊMICA</div>
+
+                            <article class="degree-card">
+                                <div class="degree-logo-slot">
+                                    <img src="images/ufca_logo.jpg" alt="Universidade Federal do Cariri (UFCA)">
+                                </div>
+
+                                <div class="degree-details">
+                                    <div class="degree-top">
+                                        <div>
+                                            <h3 data-i18n="edu.csTitle">Bacharelado em Ciência da Computação</h3>
+                                            <p class="degree-inst">Universidade Federal do Cariri (UFCA)</p>
+                                        </div>
+                                        <span class="degree-period" data-i18n="edu.csPeriod">AGO 2023 — JUL 2028</span>
+                                    </div>
+
+                                    <p class="degree-summary" data-i18n="edu.csSummary">
+                                        Bolsista de pesquisa em Inteligência Artificial Generativa (FINEP) desde fevereiro de 2025, integrando o grupo <strong>UFCA LLMs</strong> no pré-treinamento, fine-tuning e avaliação de modelos de linguagem para o domínio jurídico brasileiro.
+                                    </p>
+
+                                    <a href="https://ufca-llms.github.io/" target="_blank" rel="noopener" class="inline-action-link" data-i18n="edu.csLink">
+                                        Conhecer o grupo de pesquisa UFCA LLMs ↗
+                                    </a>
+                                </div>
+                            </article>
+                        </div>
+
+                        <div class="certs-block">
+                            <div class="block-label" data-i18n="edu.certsLabel">CERTIFICAÇÕES OFICIAIS</div>
+
+                            <article class="cert-featured">
+                                <div class="cert-featured-badge">
+                                    <img src="images/badge-databricks.png" alt="Databricks Certified Generative AI Engineer Associate">
+                                </div>
+                                <div class="cert-featured-info">
+                                    <span class="cert-featured-tag" data-i18n="edu.c1BadgeTag">CERTIFICAÇÃO EM DESTAQUE</span>
+                                    <h4>Databricks Certified Generative AI Engineer Associate</h4>
+                                    <p class="cert-issuer">Databricks · <span data-i18n="edu.c1Date">Jan 2026 (Válido até Jan 2028)</span></p>
+                                    <p class="cert-credential" data-i18n="edu.c1Cred">Código da credencial: <code>172617930</code></p>
+                                </div>
+                            </article>
+
+                            <div class="certs-simple-list">
+                                <article class="cert-simple-item">
+                                    <div>
+                                        <h4>AI-Assisted Certified Professional</h4>
+                                        <p class="cert-credential" data-i18n="edu.c2Cred">Engenharia de Software Assistida por IA</p>
+                                    </div>
+                                    <span class="cert-issuer">AI/R · <span data-i18n="edu.c2Date">Fev 2025</span></span>
+                                </article>
+
+                                <article class="cert-simple-item">
+                                    <div>
+                                        <h4>Applying AI Principles with Google Cloud</h4>
+                                        <p class="cert-credential" data-i18n="edu.c3Cred">Generative AI &amp; Artificial Intelligence Principles</p>
+                                    </div>
+                                    <span class="cert-issuer">Google · <span data-i18n="edu.c3Date">Jan 2025</span></span>
+                                </article>
+
+                                <article class="cert-simple-item">
+                                    <div>
+                                        <h4>EF SET English Certificate — C1 Advanced</h4>
+                                        <p class="cert-credential" data-i18n="edu.c4Cred">Pontuação: <code>67/100</code> (Proficiência Avançada)</p>
+                                    </div>
+                                    <span class="cert-issuer">EF SET · <span data-i18n="edu.c4Date">Abr 2024</span></span>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="artigos" class="section container">
+                <div class="section-grid">
+                    <div class="section-sidebar">
+                        <span class="section-index">05 / <span data-i18n="articles.index">PUBLICAÇÕES</span></span>
+                        <h2 class="section-heading" data-i18n="articles.heading">Artigos Técnicos</h2>
+                        <p class="section-desc" data-i18n="articles.desc">
+                            Publicações sobre arquitetura de agentes inteligentes no ecossistema .NET e engenharia de alta performance em comunicação HTTP.
+                        </p>
+                    </div>
+
+                    <div class="section-body timeline">
+                        <article class="timeline-item">
+                            <div class="timeline-meta">
+                                <span class="timeline-date">LINKEDIN PULSE</span>
+                                <span class="timeline-location" data-i18n="articles.a1Topic">IA &amp; Agentes em .NET</span>
+                            </div>
+                            <div class="timeline-content">
+                                <div class="timeline-header">
+                                    <img src="images/microsoft_agent_framework.jpg" alt="Microsoft Agent Framework" class="company-logo">
+                                    <div>
+                                        <h3>
+                                            <a href="https://www.linkedin.com/pulse/building-intelligent-agents-net-microsoft-agent-framework-rennan-bzxpf/" target="_blank" rel="noopener" class="article-title-link">
+                                                Building Intelligent Agents in .NET with Microsoft Agent Framework ↗
+                                            </a>
+                                        </h3>
+                                        <a href="https://www.linkedin.com/pulse/building-intelligent-agents-net-microsoft-agent-framework-rennan-bzxpf/" target="_blank" rel="noopener" class="company-name" data-i18n="articles.readLink">
+                                            Ler artigo no LinkedIn ↗
+                                        </a>
+                                    </div>
+                                </div>
+                                <ul class="timeline-bullets">
+                                    <li data-i18n="articles.a1b1">Exploração prática do <strong>Microsoft Agent Framework (MAF)</strong> construído sobre as abstrações padronizadas do <strong>Microsoft.Extensions.AI (MEAI)</strong> para criação de agentes autônomos e fluxos multiagentes no ecossistema .NET.</li>
+                                    <li data-i18n="articles.a1b2">Demonstração de integração com <code>IChatClient</code>, exposição de métodos C# nativos como ferramentas (Function Calling), gerenciamento de sessão/estado e injeção de dependência idiomática.</li>
+                                </ul>
+                                <div class="tag-row">
+                                    <span>Microsoft Agent Framework</span>
+                                    <span>Microsoft.Extensions.AI</span>
+                                    <span>.NET</span>
+                                    <span>C#</span>
+                                    <span>AI Agents</span>
+                                    <span>IChatClient</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="timeline-item">
+                            <div class="timeline-meta">
+                                <span class="timeline-date">LINKEDIN PULSE</span>
+                                <span class="timeline-location" data-i18n="articles.a2Topic">Performance &amp; Backend</span>
+                            </div>
+                            <div class="timeline-content">
+                                <div class="timeline-header">
+                                    <img src="images/net.png" alt=".NET" class="company-logo">
+                                    <div>
+                                        <h3>
+                                            <a href="https://www.linkedin.com/pulse/making-high-performance-http-requests-net-matheus-rennan-tenvf/" target="_blank" rel="noopener" class="article-title-link">
+                                                Making High-Performance HTTP Requests in .NET with IHttpClientFactory ↗
+                                            </a>
+                                        </h3>
+                                        <a href="https://www.linkedin.com/pulse/making-high-performance-http-requests-net-matheus-rennan-tenvf/" target="_blank" rel="noopener" class="company-name" data-i18n="articles.readLink">
+                                            Ler artigo no LinkedIn ↗
+                                        </a>
+                                    </div>
+                                </div>
+                                <ul class="timeline-bullets">
+                                    <li data-i18n="articles.a2b1">Análise arquitetural sobre como evitar armadilhas clássicas do uso manual de <code>HttpClient</code> em sistemas distribuídos, como exaustão de sockets (<em>socket exhaustion</em>) e cache de DNS obsoleto.</li>
+                                    <li data-i18n="articles.a2b2">Implementação de requisições HTTP resilientes e de alta performance utilizando <strong>IHttpClientFactory</strong>, clientes tipados, gerenciamento do ciclo de vida de handlers e políticas de retentativa.</li>
+                                </ul>
+                                <div class="tag-row">
+                                    <span>.NET</span>
+                                    <span>C#</span>
+                                    <span>IHttpClientFactory</span>
+                                    <span>High Performance</span>
+                                    <span>Resilience</span>
+                                    <span>Distributed Systems</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section id="stack" class="section container">
+                <div class="section-header-full">
+                    <div>
+                        <span class="section-index">06 / <span data-i18n="stack.index">COMPETÊNCIAS</span></span>
+                        <h2 class="section-heading" data-i18n="stack.heading">Stack Técnica Consolidada</h2>
+                    </div>
+
+                    <div class="stack-filters" role="tablist" aria-label="Filtrar competências por categoria">
+                        <button type="button" class="filter-btn active" data-filter="all" data-i18n="stack.fAll">Todas</button>
+                        <button type="button" class="filter-btn" data-filter="backend" data-i18n="stack.fBackend">Backend &amp; Arquitetura</button>
+                        <button type="button" class="filter-btn" data-filter="ai" data-i18n="stack.fAi">IA, LLMs &amp; Visão</button>
+                        <button type="button" class="filter-btn" data-filter="cloud" data-i18n="stack.fCloud">Cloud, Dados &amp; DevOps</button>
+                    </div>
+                </div>
+
+                <div class="stack-grid" id="stackGrid">
+                    <div class="stack-group" data-category="backend">
+                        <h3 data-i18n="stack.g1Title">Linguagens &amp; Ecossistema Backend</h3>
+                        <ul class="stack-list">
+                            <li><strong>C# / .NET 10, 8, 6+</strong> <span>ASP.NET Core, Web API, MVC</span></li>
+                            <li><strong>Java</strong> <span>Spring Boot, Spring Data JPA, Spring Security</span></li>
+                            <li><strong>Python</strong> <span>FastAPI, Flask, Django</span></li>
+                            <li><strong>Frontend &amp; Web</strong> <span>JavaScript, Angular, React.js, HTML/CSS</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="stack-group" data-category="backend">
+                        <h3 data-i18n="stack.g2Title">Arquitetura, Qualidade &amp; Persistência</h3>
+                        <ul class="stack-list">
+                            <li><strong>Arquitetura de Software</strong> <span>DDD, CQRS, Hexagonal, Clean Arch, BFF/BFI</span></li>
+                            <li><strong>ORMs &amp; Mediação</strong> <span>Entity Framework Core, Dapper, MediatR, AutoMapper</span></li>
+                            <li><strong>Bancos de Dados</strong> <span>Microsoft SQL Server, PostgreSQL, FAISS</span></li>
+                            <li><strong>Testes Automatizados</strong> <span>xUnit, JUnit, NSubstitute, Mockito, Bogus (Faker)</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="stack-group" data-category="ai">
+                        <h3 data-i18n="stack.g3Title">IA Generativa, Agentes &amp; LLMs</h3>
+                        <ul class="stack-list">
+                            <li><strong>Agentes &amp; Orquestração</strong> <span>Microsoft Agent Framework, Microsoft.Extensions.AI, Semantic Kernel, LangChain, LlamaIndex</span></li>
+                            <li><strong>Treinamento &amp; Modelos</strong> <span>Hugging Face, Fine-tuning, Continuous Pre-training, Custom Tokenizers</span></li>
+                            <li><strong>Avaliação &amp; MLOps</strong> <span>Databricks, RAGAS, BLEU, ROUGE, Response Relevancy</span></li>
+                            <li><strong>APIs &amp; Ferramentas</strong> <span>OpenAI API, Ollama, Whisper (STT), Gemini CLI, Copilot CLI</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="stack-group" data-category="ai">
+                        <h3 data-i18n="stack.g4Title">Visão Computacional &amp; Engenharia de Dados</h3>
+                        <ul class="stack-list">
+                            <li><strong>Detecção &amp; Segmentação</strong> <span>YOLOX, YOLO, Detectron2, OpenCV</span></li>
+                            <li><strong>Extração &amp; Documentos</strong> <span>Amazon Textract (OCR), NL-to-SQL, Vector Embeddings</span></li>
+                            <li><strong>Ciência de Dados &amp; ETL</strong> <span>Pandas, NumPy, Scikit-learn, Matplotlib, Curadoria de Datasets</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="stack-group" data-category="cloud">
+                        <h3 data-i18n="stack.g5Title">Cloud, Mensageria &amp; Infraestrutura</h3>
+                        <ul class="stack-list">
+                            <li><strong>Microsoft Azure</strong> <span>Service Bus, App Service, Application Insights, Feature Flags, Azure DevOps</span></li>
+                            <li><strong>Amazon Web Services</strong> <span>AWS Lambda, Amazon SQS, Amazon S3, Amazon Textract</span></li>
+                            <li><strong>Containers &amp; IaC</strong> <span>Docker, Kubernetes, Terraform, CI/CD Pipelines</span></li>
+                            <li><strong>Mensageria &amp; Segurança</strong> <span>Azure Service Bus, MassTransit, RabbitMQ, Kafka, OAuth2 / OIDC, JWT</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="stack-group" data-category="cloud">
+                        <h3 data-i18n="stack.g6Title">Metodologias &amp; Idiomas</h3>
+                        <ul class="stack-list">
+                            <li><strong>Fluxo de Engenharia</strong> <span>Scrum, Kanban, Gitflow, Jira, Bitbucket</span></li>
+                            <li><strong>Português</strong> <span data-i18n="stack.langPt">Nativo</span></li>
+                            <li><strong>Inglês</strong> <span data-i18n="stack.langEn">C1 Advanced (EF SET 67/100 · Equipes Globais)</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contato" class="section container">
+                <div class="contact-panel">
+                    <div class="contact-left">
+                        <span class="section-index">07 / <span data-i18n="contact.index">CONTATO</span></span>
+                        <h2 class="contact-heading" data-i18n="contact.heading">Contato Profissional</h2>
+                        <p class="contact-desc" data-i18n="contact.desc">
+                            Canais diretos para comunicação profissional, redes de engenharia de software e publicações acadêmicas.
+                        </p>
+
+                        <div class="contact-actions">
+                            <a href="mailto:matheusrennanbusiness@gmail.com" class="btn btn-primary">
+                                matheusrennanbusiness@gmail.com
+                            </a>
+                            <button type="button" class="btn-icon-copy" id="copyEmailBtn" data-email="matheusrennanbusiness@gmail.com" aria-label="Copiar e-mail" title="Copiar e-mail">
+                                <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                                </svg>
+                                <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="contact-right">
+                        <ul class="contact-channels">
+                            <li>
+                                <span class="channel-label">LinkedIn</span>
+                                <a href="https://linkedin.com/in/matheus-rennan-735370267/" target="_blank" rel="noopener">
+                                    linkedin.com/in/matheus-rennan-735370267 ↗
+                                </a>
+                            </li>
+                            <li>
+                                <span class="channel-label">GitHub</span>
+                                <a href="https://github.com/matheux147" target="_blank" rel="noopener">
+                                    github.com/matheux147 ↗
+                                </a>
+                            </li>
+                            <li>
+                                <span class="channel-label" data-i18n="contact.researchLabel">Pesquisa UFCA</span>
+                                <a href="https://ufca-llms.github.io/" target="_blank" rel="noopener">
+                                    ufca-llms.github.io ↗
+                                </a>
+                            </li>
+                            <li>
+                                <span class="channel-label" data-i18n="contact.locationLabel">Localização</span>
+                                <span class="channel-static">Juazeiro do Norte, Ceará — Brasil</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="site-footer container">
+            <div class="footer-inner">
+                <p>© 2026 Matheus Rennan. <span data-i18n="footer.rights">Desenvolvido com foco em clareza, performance e engenharia.</span></p>
+                <div class="footer-links">
+                    <a href="assets/cv/Curriculo_MatheusRennan.pdf" target="_blank" rel="noopener">Currículo (PT)</a>
+                    <a href="assets/cv/Resume_MatheusRennan.pdf" target="_blank" rel="noopener">Resume (EN)</a>
+                    <a href="#topo" data-i18n="footer.top">Voltar ao topo ↑</a>
+                </div>
+            </div>
+        </footer>
+    </div>
 
     <script src="script.js"></script>
-
 </body>
 </html>
