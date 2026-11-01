@@ -133,7 +133,7 @@ const translations = {
         "contact.researchLabel": "Pesquisa UFCA",
         "contact.locationLabel": "Localização",
 
-        "footer.rights": "Desenvolvido com foco em clareza, performance e engenharia.",
+        "footer.rights": "Engenharia de Software &amp; Inteligência Artificial",
         "footer.top": "Voltar ao topo ↑"
     },
 
@@ -271,7 +271,7 @@ const translations = {
         "contact.researchLabel": "UFCA Research",
         "contact.locationLabel": "Location",
 
-        "footer.rights": "Engineered with focus on clarity, performance, and craft.",
+        "footer.rights": "Software Engineering &amp; Artificial Intelligence",
         "footer.top": "Back to top ↑"
     }
 };
